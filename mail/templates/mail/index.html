@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+  <title>Email Web Application</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <script src="https://use.fontawesome.com/36e6971a0e.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<style media="screen">
+  .input-group{}
+</style>
+<body>
+<div class="container">
+  <div class="row">
+  <form action="{% url 'testmail' %}" method="post">
+    {% csrf_token %}
+  <div class="panel panel-default">
+<!-- to field ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <div class="panel-heading">To:</div>
+    <div class="panel-body">
+        	<div class="input-group control-group after-add-more col-lg-3 col-md-3 col-sm-6 col-12" style="float: left;margin: 10px 0 0 10px;width: 250px;">
+            <input type="text" name="to" class="form-control" placeholder="Enter email Here" style=>
+            <div class="input-group-btn">
+              <button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>
+            </div> <!-- end of input-group-btn -->
+          </div> <!-- end of input-group -->
+
+          <!-- Copy Fields -->
+
+          <div class="copy hide" >
+            <div class="control-group input-group col-lg-3 col-md-3 col-sm-6 col-12" style="float: left;margin: 10px 0 0 10px;width: 250px;">
+              <input type="text" name="to" class="form-control" placeholder="Enter email Here" style=>
+              <div class="input-group-btn">
+                <button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Del</button>
+              </div> <!-- end of input-group-btn -->
+            </div> <!-- end of control-group -->
+          </div> <!-- end of copy -->
+      </div> <!-- end of panel-body -->
+
+<!-- subject field ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+      <div class="panel-heading">Subject:</div>
+      <div class="panel-body">
+          	<div class="input-group control-group  col-lg-12 col-md-12 col-sm-12 col-12" style="margin-left: 10px;">
+              <input type="text" name="subject" class="form-control" placeholder="Enter Subject Here">
+            </div> <!-- end of input-group -->
+        </div> <!-- end of panel-body -->
+
+<!-- message field ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+      <div class="panel-heading">Message:</div>
+      <div class="panel-body">
+          	<div class="input-group control-group  col-lg-12 col-md-12 col-sm-12 col-12" style="margin-left: 10px;">
+              <textarea name="message" rows="8" cols="100" placeholder="Enter message here..." style="resize: none;"></textarea>
+            </div> <!-- end of input-group -->
+
+<!-- send button -///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <button class="btn btn-lg btn-success" type="submit" style="margin: 10px 0 0 10px;">Send <i class="fa fa-paper-plane" aria-hidden="true"></i>
+</button>
+        </div> <!-- end of panel-body -->
+
+
+    </div> <!-- end of panel -->
+    </form>
+  </div> <!-- end of row -->
+</div> <!-- end of container -->
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+      $(".add-more").click(function(){
+          var html = $(".copy").html();
+          $(".after-add-more").after(html);
+      });
+
+      $("body").on("click",".remove",function(){
+          $(this).parents(".control-group").remove();
+      });
+    });
+
+</script>
+</body>
+</html>
