@@ -78,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'mail_sender',
-        'USER': 'postgres',
-        'PASSWORD': 'pk8742',
+        'USER': 'username',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': 5432
     }
@@ -125,8 +125,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST_USER = "sharmapk8742@gmail.com"
+EMAIL_HOST_USER = "email id"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = "pk.sharma@8742"
+EMAIL_HOST_PASSWORD = "email password"
